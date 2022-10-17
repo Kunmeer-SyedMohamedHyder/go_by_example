@@ -18,4 +18,7 @@ func main() {
 
 	_, val = d["c"]
 	fmt.Println(val)
+
+	new_d := map[string]int{"hello": 1, "world": 2}
+	fmt.Println(new_d)
 }
