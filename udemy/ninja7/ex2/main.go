@@ -3,12 +3,22 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"os"
 )
 
 type Person struct {
-	First string `json:"myName"`
-	Last  string
-	Age   int
+	First   string   `json:"first"`
+	Last    string   `json:"Last"`
+	Age     int      `json:"Age"`
+	Sayings []string `json:"Sayings"`
+}
+
+func extra(people []Person) {
+	encoder := json.NewEncoder(os.Stdout)
+	err := encoder.Encode(people)
+	if err != nil {
+		fmt.Println(err)
+	}
 }
 
 func main() {
@@ -21,6 +31,7 @@ func main() {
 		fmt.Println(err)
 	}
 
-	fmt.Println(people)
+	//fmt.Println(people[0].First)
+	extra(people)
 
 }
